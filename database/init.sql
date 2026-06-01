@@ -1,0 +1,32 @@
+CREATE TABLE Cities (
+    CityID INTEGER PRIMARY KEY AUTOINCREMENT,
+    CityName TEXT NOT NULL,
+    Voivodeship TEXT NOT NULL
+);
+
+CREATE TABLE Agencies (
+    AgencyID INTEGER PRIMARY KEY AUTOINCREMENT,
+    AgencyName TEXT NOT NULL,
+    Phone TEXT
+);
+
+CREATE TABLE Properties (
+    PropertyID INTEGER PRIMARY KEY AUTOINCREMENT,
+    CityID INTEGER,
+    AgencyID INTEGER,
+    Address TEXT NOT NULL,
+    AreaM2 REAL NOT NULL,
+    Rooms INTEGER NOT NULL,
+    YearBuilt INTEGER,
+    FOREIGN KEY (CityID) REFERENCES Cities(CityID),
+    FOREIGN KEY (AgencyID) REFERENCES Agencies(AgencyID)
+);
+
+CREATE TABLE Listings (
+    ListingID INTEGER PRIMARY KEY AUTOINCREMENT,
+    PropertyID INTEGER,
+    ListingDate DATE,
+    Price REAL NOT NULL,
+    Status TEXT,
+    FOREIGN KEY (PropertyID) REFERENCES Properties(PropertyID)
+);
