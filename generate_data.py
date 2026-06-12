@@ -1,8 +1,27 @@
 import sqlite3
 import random
+from pathlib import Path
 
-conn = sqlite3.connect("database/real_estate.db")
+BASE_DIR = Path(__file__).resolve().parent
+DB_PATH = BASE_DIR / "database" / "real_estate.db"
+
+random.seed(42)
+
+conn = sqlite3.connect(DB_PATH)
 cursor = conn.cursor()
+
+# ------------------
+# Clean source tables
+# ------------------
+
+cursor.executescript("""
+DELETE FROM Listings;
+DELETE FROM Properties;
+DELETE FROM Agencies;
+DELETE FROM Cities;
+DELETE FROM sqlite_sequence
+WHERE name IN ('Listings', 'Properties', 'Agencies', 'Cities');
+""")
 
 # ------------------
 # Cities

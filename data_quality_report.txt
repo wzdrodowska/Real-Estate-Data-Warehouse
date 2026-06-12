@@ -1,0 +1,21 @@
+DATA QUALITY REPORT
+===================
+Source cities checked: 6
+Source properties checked: 100
+Source listings checked: 100
+
+DimCity rows loaded: 6
+DimProperty rows loaded: 100
+DimDate rows loaded: 1
+FactSales rows loaded: 100
+
+Rows skipped because of empty city data: 0
+Rows skipped because of invalid property data: 0
+Rows skipped because of invalid price: 0
+Rows skipped because of invalid area: 0
+Rows skipped because of invalid listing date: 0
+Rows skipped because of invalid status: 0
+Rows skipped because of invalid year built: 0
+Rows skipped because of invalid room count: 0
+Rows skipped because of invalid property reference: 0
+Duplicate fact rows skipped: 0
